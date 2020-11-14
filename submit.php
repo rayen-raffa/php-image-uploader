@@ -4,7 +4,7 @@ header('Content-Type: text/plain; charset=utf-8');
 
 $target_dir = 'uploads';
 $redirect_url = 'www.google.com';
-$max_file_size = 1000000;
+$max_file_size = 2000000; // Enter Image size in Bytes
 	
 try {
 
@@ -31,7 +31,7 @@ try {
     }
 
     // You should also check filesize here.
-    if ($_FILES['upfile']['size'] > 1000000) {
+    if ($_FILES['upfile']['size'] > $max_file_size) {
         throw new RuntimeException('Exceeded filesize limit.');
     }
 
