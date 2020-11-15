@@ -1,5 +1,5 @@
 <?php
-
+ 
 header('Content-Type: text/plain; charset=utf-8');
 
 $target_dir = 'uploads';
@@ -54,8 +54,9 @@ try {
     // You should name it uniquely.
     // DO NOT USE $_FILES['upfile']['name'] WITHOUT ANY VALIDATION !!
     // On this example, obtain safe unique name from its binary data.
-    // TODO : change image save name to add save date signature  
-    $target_file = sprintf('./%s/%s_%s.%s',$target_dir,date("Y-m-d_H:m:s"), sha1_file($_FILES['upfile']['tmp_name']), $ext);
+    // TODO : change image save name to add save  date signature
+    $file_name = str_replace(" ","-",$_FILES['upfile']['name']);  
+    $target_file = sprintf('./%s/%s_%s.%s',$target_dir,date("YmdHms"), $file_name, $ext);
 	    
     if (!move_uploaded_file($_FILES['upfile']['tmp_name'], $target_file )) {
         throw new RuntimeException('Failed to move uploaded file.');
