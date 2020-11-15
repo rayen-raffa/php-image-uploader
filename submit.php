@@ -2,7 +2,7 @@
  
 header('Content-Type: text/plain; charset=utf-8');
 
-$target_dir = 'uploads';
+$target_dir = 'uploads'; // needs to be created manually, in the same directory as this file
 $redirect_url = 'www.google.com';
 $max_file_size = 2000000; // Enter Image size in Bytes
 	
